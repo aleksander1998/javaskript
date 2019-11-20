@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <p>Ferdighet 6 - Sette sammen tekst av flere deler  og  bruke dette til å bygge HTML dynamisk</p>
+    <input id="sizeSlider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
+    <br /><input id="textInput" type="text" oninput="showDiv()" value="l!" />
+    <input id="radus" type="range" min="1" max="100" step=" 1" oninput="showDiv()" />
+
+    <input id="sizeSliderX" type="range" min="5" max="20" step="1" oninput="showDiv()" />
+    <select id="colorborder" onchange="showDiv()">
+        <option value="gray"> gray</option>
+        <option value="black">black</option>
+    </select>
+    <select id="Colochanger" onchange="showDiv()">
+        <option value="red">red</option>
+        <option selected value="blue">blue</option>
+    </select>
+    <div id="resultat"></div>
+    <div id="resultatHtml" style="font-family: monospace"></div>
+    <script>
+        var radusslider = document.getElementById('radus');
+        var resultatDiv = document.getElementById('resultat');
+        var resultatHtmlDiv = document.getElementById('resultatHtml');
+        var sizeSlider = document.getElementById('sizeSlider');
+        var textInput = document.getElementById('textInput');
+        var colorChooser = document.getElementById('Colochanger');
+        var colorborder = document.getElementById('colorborder');
+        var sizeSliderx = document.getElementById('sizeSliderX');
+        showDiv();
+        function showDiv() {
+            resultatDiv.innerHTML = '<div style="'
+
+                + 'border: solid ' + colorborder.value + " " + sizeSliderX.value + "px;"
+                + 'border-radius: ' + radusslider.value + 'px;' 
+                + 'background-color: ' + colorChooser.value + ';'
+                + 'width: ' + sizeSlider.value + 'px;'
+                + 'height: ' + sizeSlider.value + 'px;'
+                + '">' +
+                textInput.value + '</div>';
+            resultatHtmlDiv.innerText = resultatDiv.innerHTML;
+        }
+         
+        
+    </script>
+
+</body>
+
+</html>

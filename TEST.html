@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testOnLoad()">
+    <p>TEST 1 2 3 </p>
+    <input type="text" oninput="testOnInput()" />
+    <h3 oncontextmenu="testOnMousOver()" onkeydown="testOnmousOut()" ondblclick="testOnChange()">"test test test</h3>
+    <h2 id="info">g</h2>
+    <a hrf="https://www.google.com">info her </a>
+    <a href="www.vg.no">HTML Images</a>
+    <script>
+        function testOnLoad() {
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+        }
+        function testOnChange() {
+            document.getElementById('info').innerHTML += '<li>onchange</li>';
+
+        } function testOnInput() {
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+
+        } function testOnMousOver() {
+
+            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        }
+        function testOnmousOut() {
+            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        }
+
+
+    </script>
+</body>
+</html>

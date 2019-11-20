@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>ø
+<body>
+    <input type="text" oninput="testOnInput()" />
+    <h2 id="2">test</h2>
+    <h1 onmouseover="over()">hey</h1>
+    <h1 onmousewheel="wheel()">heisan til deg ja </h1>
+    <h1 onmousedown="down()">du ser detter på denne siden</h1>
+    <h1 onmousdown="down">dette er nommer 3 bare </h1>
+    <h1 onmousedown="down()">detter er en test ikke si noe</h1>
+    <h1 onmousdown="down()">hvet ikke om dette kommer til og virke</h1>
+    <script>
+        function over(){
+            document.getElementById('2').innerHTML += '<li>over</li>';
+        } function wheel() {
+            document.getElementById('2').innerHTML += '<li>wheel</li>';
+        } function down() { 
+            document.getElementById('2').innerHTML += '<li>down</li>';
+        }
+        
+    </script>
+
+</body>
+</html>

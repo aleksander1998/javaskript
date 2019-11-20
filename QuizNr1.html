@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body{background-color:mediumspringgreen;}
+        p {
+            background-color: darkslateblue;
+            color: red;
+            height: 40px;
+            width: 300px;
+            position: center;
+        } h1{color:blueviolet;
+             position:40%
+          }
+        h2 {
+            color: blueviolet;
+            position: 40%;
+        }
+        h3 {
+            color: blueviolet;
+            position:40%;
+        }
+    </style>
+</head>
+<body>
+    <p>Hvem hvar første man på Månen??</p>
+
+
+    <h1 onclick="q1()" id="A1">Aldrin</h1>
+    <h1 onclick="q3()" id="A3">Collins</h1>
+    <h2 onclick="q2()" id="A2">Armstrong</h2>
+    
+
+    
+
+
+    <script>
+        function q1() {
+            document.getElementById('A1').innerHTML = 'FEIL!!!'
+        } function q3() {
+            document.getElementById('A3').innerHTML = 'FEIL!!!'
+        }
+        function q2() {
+            document.getElementById('A2').innerHTML = 'riktig!!'
+
+        }
+    </script>
+
+</body>
+</html>
