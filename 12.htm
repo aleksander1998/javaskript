@@ -1,0 +1,110 @@
+﻿
+<!-- saved from url=(0044)https://daud580.github.io/Daud/oblig%201.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .a1 {
+            margin-left: 4px;
+        }
+        
+        .addthis {
+            background: aqua;
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 60px 10fr 20px;
+            grid-template-areas: 'menu menu' 'main main' 'foot foot';
+        }
+        
+        div.menu {
+            background-color: #222;
+            grid-area: menu;
+            font-size: 20px;
+        }
+        
+        div.main {
+            background-color: rgb(87, 86, 84);
+            grid-area: main;
+            text-align: center;
+        }
+        
+        div.foot {
+            background-color: rgb(155, 155, 155);
+            grid-area: foot;
+        }
+        
+        @media only screen and (max-width: 500px) {
+            div.page {
+                grid-template-columns: 1fr;
+                grid-template-rows: 40px 1fr 4fr 20px;
+                grid-template-areas: 'menu' 'main' 'foot';
+            }
+        }
+    </style>
+    <script src="./12_files/jquery.min.js.last ned"></script>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="page">
+        <div class="menu">
+            <button id="buttonmenu">menu</button>
+            <div id="div4" style="">
+                <a class="a1" href="https://www.bing.com/">google</a>
+                <a class="a1" href="file:///C:/Users/GET%20Academy%20Student/Documents/test3.htm">refresh</a>
+            </div>
+        </div>
+        <div class="main" id="main" style="background-color: grey;">
+
+            <button onclick="dosmothing1(this)">clickme</button>
+            <input id="input" type="text">
+            <button id="bmain1" onclick="dosmthing2(this)">clickme</button>
+            <input id="input2" type="text">
+            <input id="input3" type="text">
+        </div>
+        <div class="foot"></div>
+    </div>
+
+    <script>
+        var mainn = document.getElementById('main');
+        var input = document.getElementById('input');
+        var input2 = document.getElementById('input2')
+        var input3 = document.getElementById('input3')
+
+
+
+        function dosmthing2(clickedElement) {
+            document.getElementById('input2').value =
+                Math.floor(Math.random() * 11);
+            if (input2.value >= 5) {
+                input3.value = "hallo";
+            } else {
+                input3.value = "hade";
+            }
+        }
+
+
+
+        function dosmothing1(clickedElement) {
+            input.value = 'takk'
+            mainn.style.backgroundColor = 'grey';
+
+        }
+
+        $(document).ready(function() {
+            $("#buttonmenu").click(function() {
+                $("#div4").fadeToggle();
+            });
+        });
+    </script>
+
+
+
+</body></html>
