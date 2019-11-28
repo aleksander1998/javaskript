@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    
+    <p> Code</p>
+    <div id="test"></div>
+    <button onclick="tell(this)">1</button>
+    <button onclick="tell(this)">2</button>
+    <button onclick="tell(this)">3</button>
+    <div></div>
+    <button onclick="tell(this)">4</button>
+    <button onclick="tell(this)">5</button>
+    <button onclick="tell(this)">6</button>
+    <div></div>
+    <button onclick="tell(this)">7</button>
+    <button onclick="tell(this)">8</button>
+    <button onclick="tell(this)">9</button>
+    <div id="output"></div>
+
+    <script>
+        var correctCode = '8521';
+        var enteredSoFar = '';
+
+
+        function tell(knapptall) {
+            console.log("tell kjører!");
+            document.getElementById('test').innerHTML += knapptall.innerHTML;
+            enteredSoFar += knapptall.innerHTML;
+            console.log("entered so far - og i den ligger følgende data: " + enteredSoFar);
+
+            CheckCorrect();
+        }
+        function CheckCorrect() {
+
+            if (enteredSoFar.length == 5) {
+                console.log("nå ærre mange tall ass");
+                enteredSoFar = "";
+                document.getElementById('test').innerHTML = "";
+            }
+            if (!correctCode.startsWith(enteredSoFar)) {
+                document.getElementById("output").innerHTML = "  trykket feil";
+            }
+
+            if (correctCode.startsWith(enteredSoFar)) {
+                document.getElementById("output").innerHTML = " det først er riktig";
+
+            }
+            if (correctCode == enteredSoFar) {
+                document.getElementById("output").innerHTML = " koden er riktig";
+            }
+           
+        }
+                   
+
+    </script>
+
+</body>
+</html>
