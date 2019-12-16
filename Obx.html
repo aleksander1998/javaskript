@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        
+        
+    </style>
+</head>
+<body>
+    <div id="content">
+</div>
+
+<script>
+    //Hjelpe  Variabler
+    let contentDiv = document.getElementById('content');
+   
+    // model
+    let numbers = [2, 3, 1, 5, 8];
+    let choiceBarNumber = 'ingen'
+    let isdisabled = true; 
+    
+    // view
+    show();
+    function show() {
+        let ON = isdisabled == true ? 'disabled':'';
+        let svgInnerHtml = '';
+        for (let i = 0; i < numbers.length; i++) {
+            let barNo = i + 1;
+         
+            
+            svgInnerHtml += createBar(numbers[i], i + 1, );
+        }
+        contentDiv.innerHTML = `
+            <svg id="chart" width="500" viewBox="0 0 80 60">
+                ${svgInnerHtml}
+            </svg><br/>
+            Valgt stolpe: <i>${choiceBarNumber}</i>
+            <br />
+            Verdi:
+            <input id="value" type="number" min="1" max="10" value=0 />
+            <button onclick="power('Add')">Legg til stolpe</button>
+            <button ${ON} id="changeBar"onclick="power('Change')">Endre valgt stolpe</button><br />
+            <button ${ON} id="removeBar"onclick="power('remove')">Fjerne valgt stolpe</button>
+            `;
+    }
+    
+    function createBar(number, barNo,) {
+       
+        let border = 0;
+        const width = 8;
+        const spacing = 2;
+        let x = (barNo - 1) * (width + spacing);
+        let height = parseInt(number) * 6;
+        console.log(height);
+        let y = 60 - height;
+        
+        let color = calcColor(1, 10, barNo);
+        if (choiceBarNumber != 'ingen' && barNo == choiceBarNumber) {
+            border = 1 
+        }
+        return `<rect
+                   onclick="barClicked(${barNo})"
+                     width="${width}"
+                    height="${height}"
+                            x="${x}"
+                            y="${y}"
+                            fill="${color}" 
+                             stroke-width="${border}"
+                             stroke="black">
+                             </rect>`;
+                              
+    }
+        
+    
+    function calcColor(min, max, val) {
+        var minHue = 240, maxHue = 0;
+        var curPercent = (val - min) / (max - min);
+        var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
+        return colString;
+    }
+
+    // controller 
+    function barClicked(barNo) {
+
+        if (choiceBarNumber == barNo) {
+            choiceBarNumber = 'ingen';
+            isdisabled = true;
+
+            show();
+
+        } else {
+            choiceBarNumber = barNo;
+            isdisabled = false;
+            show();
+
+           
+        }
+        
+    }
+   
+     
+    
+    function power(PowerT) {
+        
+        console.log(PowerT);
+        let Input = document.getElementById('value')
+        if (PowerT == "Add") {
+            if (Input.value > 0 && Input.value < 11) {
+                console.log(PowerT);
+                numbers.push(Input.value);
+            }
+            else {
+                console.log("iførdte else");
+                alert("bare 1 -10 i verdi");
+
+            } 
+            
+            show();
+        }
+
+        
+
+        if (PowerT == 'Change' && Input.value > 0 && Input.value < 11) {
+            numbers[choiceBarNumber - 1] = Input.value;
+            show();
+
+
+
+
+
+            
+
+        }
+        
+        if (PowerT == 'remove' && numbers.length >= 1) {
+            numbers.splice(choiceBarNumber - 1, 1)
+            show();
+        }
+        
+    show();
+    }
+  
+
+</script>
+</body>
+</html>
