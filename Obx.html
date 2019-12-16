@@ -122,14 +122,12 @@
 
         
 
-        if (PowerT == 'Change' && Input.value > 0 && Input.value < 11) {
+        if (PowerT == 'Change') {
+            if (Input.value < 1 || Input.value > 11) {
+                return alert('')
+            }
             numbers[choiceBarNumber - 1] = Input.value;
             show();
-
-
-
-
-
             
 
         }
