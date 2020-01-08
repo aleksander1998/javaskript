@@ -6,33 +6,34 @@
     <title></title>
 </head>
 <body>
-    <input id="RXB" type="range" min="1" max="1000" step=" 1" oninput="radus()" />
-    <input id="withe" type="range" min="1" max="1000" step="1" oninput="radus()" />
-    <div id="arial"></div>
-    <div id="omkrets"> </div>
-    <div id="delingsDiv"> </div>
+    
+        <input id="RXB" type="range" min="1" max="1000" step=" 1" oninput="radus()" />
+        <input id="withe" type="range" min="1" max="1000" step="1" oninput="radus()" />
+        <div id="arial"></div>
+        <div id="omkrets"> </div>
+        <div id="delingsDiv"> </div>
 
-    <script>
-        var height = document.getElementById('RXB');
-        var arialTextDivOutput = document.getElementById('arial');
-        var omkretsTextDivOutput = document.getElementById('omkrets');
-        var delingOutput = document.getElementById('delingsDiv');
-        var withe = document.getElementById('withe');
+        <script>
+            var height = document.getElementById('RXB');
+            var arialTextDivOutput = document.getElementById('arial');
+            var omkretsTextDivOutput = document.getElementById('omkrets');
+            var delingOutput = document.getElementById('delingsDiv');
+            var withe = document.getElementById('withe');
 
 
-        radus();
-        function radus() {
-            var heightCalculate = parseInt(height.value);
-            var witheCalculate = parseInt(withe.value);
-            var arial = heightCalculate * witheCalculate;
-            var omkrets = 2 * (heightCalculate + witheCalculate);
-            var deling = heightCalculate / witheCalculate;
+            radus();
+            function radus() {
+                var heightCalculate = parseInt(height.value);
+                var witheCalculate = parseInt(withe.value);
+                var arial = heightCalculate * witheCalculate;
+                var omkrets = 2 * (heightCalculate + witheCalculate);
+                var deling = heightCalculate / witheCalculate;
 
-            arialTextDivOutput.innerHTML = "Areaket av høyde: " + heightCalculate + " og bredde: " + witheCalculate + " er : " + arial;
-            omkretsTextDivOutput.innerHTML = "Omkretsen av arealet: " + arial + " er : " + omkrets;
-            delingOutput.innerHTML = "Når du deler " + witheCalculate + " på " + heightCalculate + " så får du" + deling;
+                arialTextDivOutput.innerHTML = "Areaket av høyde: " + heightCalculate + " og bredde: " + witheCalculate + " er : " + arial;
+                omkretsTextDivOutput.innerHTML = "Omkretsen av arealet: " + arial + " er : " + omkrets;
+                delingOutput.innerHTML = "Når du deler " + witheCalculate + " på " + heightCalculate + " så får du" + deling;
 
-        }
-    </script>
+            }
+        </script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="showDiv('når siden lastes')">
+    <input type="text" onchange="showDiv('<li>onchange</li>')" oninput="showDiv('<li>oninput</li>')" />
+
+    <h3 onmouseover="showDiv('<li>onmouseover</li>')" onmouseout="showDiv('<li style=``>onmouseout</li>')">test</h3>
+    <div id="resultat"></div>
+    <h2 id="info"></h2>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+
+        function showDiv(MouseChange) {
+            
+            document.getElementById('info').innerHTML += MouseChange;
+        }
+       
+    </script>
+</body>
+</html>

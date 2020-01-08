@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .stilig1 {
+            color: red;
+        }
+
+        .stilig2 {
+            margin: 10px;
+        }
+
+        .stilig3 {
+            padding: 15px;
+        }
+
+        .stilig4 {
+            border:solid #000000;
+        }
+
+        .stilig5 {
+            background-color: indianred;
+        }
+    </style>
+</head>
+<body>
+    <div id="bing"onclick="selectedDiv">Heisan hippo hippo</div>
+    <div id="bing2"onclick="selectedDiv">heisan håpp</div>
+    
+
+    <input id="chika" type="checkbox" onchange="toggleStyle()" />
+    <input id="chika2" type="checkbox" onchange="toggleStyle2()" />
+    <input id="chika3" type="checkbox" onchange="toggleStyle3()" />
+    <input id="chika4" type="checkbox" onchange="toggleStyle4()" />
+    <input id="chika5" type="checkbox" onchange="toggleStyle5()" />
+    <script>
+       
+        var isChecked = document.getElementById('chika');
+        var bing = document.getElementById('bing');
+
+        function toggleStyle() {
+           
+            isChecked.checked;
+            bing.classList.toggle('stilig1');
+        }
+        function toggleStyle2() {
+            console.log("togglestyle #! kjører");
+            isChecked.checked;
+            bing.classList.toggle('stilig2');
+        }
+        function toggleStyle3() {
+           isChecked.checked;
+           bing.classList.toggle('stilig3');
+        }
+        function toggleStyle4() {
+            isChecked.checked;
+            bing.classList.toggle('stilig4');
+        }
+        function toggleStyle5() {
+             isChecked.checked;
+           bing.classList.toggle('stilig5');
+        }
+    </script>
+</body>
+</html>

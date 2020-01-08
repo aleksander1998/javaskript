@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <style>
-        div {
+        div{
+            user-select:none;
+        }
+        div.popp {
             color:red;
             background-color:darkblue;
             width: 100px;
@@ -14,49 +17,109 @@
             font-size:500%;
             font-family:Helvetica;
             text-align:center;
-        } div.first{
+        } div.l{
               clear:left;
+
+          }
+          div.colorx {
+              color:blueviolet;
+          }
+          div.coloro {
+              color:darkgreen;
           }
     </style>
 </head>
 <body>
-    <div onclick="setX(this)"class="first"></div>
-    <div onclick="setX(this)"></div>
-    <div onclick="setX(this)"></div>
-
-    <div onclick="setX(this)"class="first"></div>
-    <div onclick="setX(this)"></div>
-    <div onclick="setX(this)"></div>
     
-    <div onclick="setX(this)"class="first"></div>
-    <div onclick="setX(this)"></div>
-    <div onclick="setX(this)"></div>
-
-
+    <div id="tallman"></div>
+    <div id="outputDiv"></div>
     <script type="text/javascript">
-        function setX(divElement) {
-           if (divElement.innerHTML !== 'x' && divElement.innerHTML !== 'o') {
-            divElement.innerHTML = 'x';
-        
-        var divs1 = document.getElementsByTagName('div');
-        var divs2 = new Array();
-               for (var i = 0; i < divs1.length; i++) {
-                   if (divs1[i].innerHTML !== 'x' && divs1[i].innerHTML !== 'o') {
-                       divs2.push(divs1[i]);
-                   }
-               }
+        let tallDiv = document.getElementById('tallman');
 
-            if (divs2.length > 0) {
-                var index = Math.floor(Math.random() * divs2.length);
-                divs2[index].innerHTML = 'o';
-                divs2[index].style.color = 'pink'
+        //model
+        let tallman = ['', '', '', '', '', '', '', '', ''];
+        let resualtFromWinning;
+        show();
 
+        //view
+        show();
+        function show() {
+            let html = '';
+            for (let i = 0; i < 9; i++) {
+                let l = i % 3 == 0 ? 'l' : '';
+                html += `
+              <div onclick="setX(${i})"class=" popp color${tallman[i]} ${l}">${tallman[i]}</div>`;
                 
-
             }
+            tallDiv.innerHTML = html 
         }
 
-    }
+
+
+
+
+
+
+        //controller
+        function setX(index) {
+            console.log(index);
+            if (tallman[index] === '') {
+                tallman[index] = 'x';
+              
+                setO();
+            }
+            checkWinning();
+            show();
+                }
+        function setO() {
+            let tommIndex = Array.from(tallman.keys()).filter(i => tallman[i] === '');
+            if (tommIndex.length === 0) return;
+            let OII = Math.floor(Math.random() * tommIndex.length);
+            let tomIndex = tommIndex[OII];
+            tallman[tomIndex] = 'o';
+            checkWinning();
+            show();
+            
+
+        }
+       
+        function checkWinning() {
+
+            console.log("checkwinning kjøere" + tallman);
+            if (tallman[0] == "x" && tallman[1] == 'x' && tallman[2] == 'x' ||
+                tallman[0] == 'x' && tallman[3] == 'x' && tallman[6] == 'x' ||
+                tallman[0] == 'x' && tallman[4] == 'x' && tallman[8] == 'x' ||
+                tallman[6] == 'x' && tallman[7] == 'x' && tallman[8] == 'x' ||
+                tallman[3] == 'x' && tallman[4] == 'x' && tallman[5] == 'x' ||
+                tallman[1] == 'x' && tallman[4] == 'x' && tallman[7] == 'x' ||
+                tallman[2] == 'x' && tallman[5] == 'x' && tallman[8] == 'x' ||
+                tallman[2] == 'x' && tallman[4] == 'x' && tallman[6] == 'x') {
+                outputDiv.innerHTML = 'you win '
+                console.log("x vinner!");
+                show();
+            }
+            else if  (tallman[0] == "o" && tallman[1] == 'o' && tallman[2] == 'o' ||
+                tallman[0] == 'o' && tallman[3] == 'o' && tallman[6] == 'o' ||
+                tallman[0] == 'o' && tallman[4] == 'o' && tallman[8] == 'o' ||
+               tallman[6] == 'o' && tallman[7] == 'o' && tallman[8] == 'o' ||
+                tallman[3] == 'o' && tallman[4] == 'o' && tallman[5] == 'o' ||
+                tallman[1] == 'o' && tallman[4] == 'o' && tallman[7] == 'o' ||
+                tallman[2] == 'o' && tallman[5] == 'o' && tallman[8] == 'o' ||
+                tallman[2] == 'o' && tallman[4] == 'o' && tallman[6] == 'o') {
+                outputDiv.innerHTML = 'you lose '
+                console.log("you lose ")
+
+                show();
+        }
+            
+            
+        }
+
+        //}
+        //function checkDraw() {
+          //  if ()
+        //}
+    
     </script>
 </body>
 </html>

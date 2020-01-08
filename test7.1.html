@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+   <style> 
+   </style>
+</head>
+<body>
+    <select id="tallA" onchange="tallA()">
+        <option value="blue"></option>
+        </select>
+        <h1>hallo</h1>
+        <div id="height">Ko</div>
+        <div id="width">Og</div>
+
+        <script>
+
+            var tallA = document.getElementById('height');
+            var tallB = document.getElementById('width');
+            calculate();
+            function calculate() {
+                console.log(Math.random());
+                var height = 400 + Math.floor(Math.random() * 66);
+                var width = 420 + Math.floor(Math.random() * 66);
+          
+                var Y = height + width;
+                var X = 'border:' + Y + 'solid black; '+ width + height;
+                console.log(height + " Height" + width  +" width");
+                tallA.innerHTML = '' +
+                    height + width + '=' + height + '<br/>'+ ';';
+                //height + '-' + width + '=' + width + '<br/>'+ ';';
+                //height + '*' + width + '=' + Y + '<br/>'+';';
+                //height + '/' + width + '=' + X;
+
+
+            }
+        </script>
+</body>
+</html>

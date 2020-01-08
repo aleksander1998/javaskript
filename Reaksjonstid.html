@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        div.lamp {
+            background-color: forestgreen;
+            border-radius: 50%;
+            width: 100px;
+            padding: 10px;
+            margin: 2px;
+            height: 100px;
+            float: left;
+            clear: right;
+        }
+
+        .lightOn{
+            background-color: yellow;
+        }
+        div.first {
+            clear: left
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnoff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+   
+    <div class="lamp first"onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+  
+    <div class="lamp first"onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+   
+    <div class="lamp first" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    
+    <div class="lamp first"onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    <div class="lamp" onclick="turnOff()"></div>
+    
+    <script>
+        turnOnRandom();
+        function turnOnRandom() {
+            console.log("kjører!");
+            var elementsList = document.getElementsByClassName("lamp");
+            var randomIndex = Math.floor(Math.random() * elementsList.length);
+            var selectedElement = elementsList[randomIndex];
+            var selectedElementClassList = selectedElement.classList;
+            selectedElementClassList.replace('lamp','lightOn');
+            console.log(selectedElementClassList);
+        }
+
+        function turnOff() {
+            console.log("jadda!");
+        }
+    </script>
+</body>
+</html>

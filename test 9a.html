@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="div1" style="background-color: blue; width: 40px; height: 40px" onclick="select(this)"></div>
+    <div id="div2" style="background-color: red; width: 40px; height: 40px" onclick="select(this)"></div>
+
+    <input id="a" type="range" min="1" max="600" oninput="show()" value="40" />
+    <input id="b" type="range" min="1" max="400" oninput="show()" value="40" />
+    <div id="info"></div>
+
+    <script>
+
+        var selectedDiv = document.getElementsByTagName('div')[0];
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        show();
+        function select(div) {
+            selectedDiv.style.border = '';
+            selectedDiv = div;
+            selectedDiv.style.border = 'white dashed 2px';
+        }
+        function show() {
+            var a = document.getElementById('a').value;
+            var b = document.getElementById('b').value;
+            selectedDiv.style.width = a + 'px';
+            selectedDiv.style.height = b + 'px';
+
+            let w1 = parseInt(div1.style.width);
+            let w2 = parseInt(div2.style.width);
+            let h1 = parseInt(div1.style.height);
+            let h2 = parseInt(div2.style.height);
+            let area1 = w1 * h1;
+            let area2 = w2 * h2;
+
+            if (a < 10) {
+                if ( a < 20) {
+                   
+                }
+            }
+
+            var areaText = area1 == area2 ? 'Blå og rød er like stor' :
+                area1 == 2 * area2 ? 'Blå rektangel er dobbelt så stor som rød' :
+                    area1 > area2 ? 'Blå rektangel er størst' :
+                        'rød rektangel er størst'
+
+            document.getElementById('info').innerHTML = `
+                                a=${a} b=${b} areal1= ${area1} areal2=${area2}
+
+                                ${areaText}
+
+                                <table>
+                                    <tr><td>==</td><td>${a == b}</td></tr>
+                                    <tr><td>!=</td><td>${a != b}</td></tr>
+                                    <tr><td>&lt;</td><td>${a < b}</td></tr>
+                                    <tr><td>&lt;=</td><td>${a <= b}</td></tr>
+                                    <tr><td>&gt;</td><td>${a > b}</td></tr>
+                                    <tr><td>&gt;=</td><td>${a >= b}</td></tr>
+                                </table>
+                                    `;
+        }
+    </script>
+</body>
+</html>

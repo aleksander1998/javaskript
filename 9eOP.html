@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+</head>
+<body>
+    <div info="textinput"></div>
+    <div id="info">dddddd</div>
+    <select id="colorChanger" onchange="showDiv">
+        <option value="black">black</option>
+        <option value="darkblue">darkblue</option>
+        <option value="lightgray">lightgray</option>
+        <option value="lightgreen">lightgreen</option>
+        <option value="lightred">lightred</option>
+    </select>
+    <script>
+        var colorChanger = document.getElementById('colorChoser')
+        var info;
+        
+        function showDiv() {
+            info.innerHTML = '<div style="'
+                + 'background-color: ' + colorChooser.value + ';'
+                + textInput.value + '</div>';
+            info.innerText = textInput.innerHTML;
+        }
+                
+            
+        
+    </script>
+
+</body>
+</html>
